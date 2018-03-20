@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset='UTF-8'>
+    <title>JavaScript - Fiszka</title>
+    <link rel="stylesheet" type="text/css" href="styleFiszka.css">
+    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+    <script>
+        function check(){
+            if(document.getElementById('question').style.display=='block'){
+                document.getElementById('question').style.display='none'
+                document.getElementById('answer').style.display='block';}
+
+            else{document.getElementById('question').style.display='block'
+                document.getElementById('answer').style.display='none';}
+        }
+    </script>
+</head>
+<body>
+<div class='back'><a href="JavaScript"><button id="back">Powrót</button></a></div>
+<div class='content'>
+    <div id='question'>
+        <p>Bardzo trudne pytanie zassrudne pytanie zassysane z bazy dsfjhgfdgfhgfjh gfhgjhkhjghfgrtyu gfhdjfhgkjlukyyjhtgrfaehytrshtrjytjyt jyytk ytkytukuyuyk uyku
+        </p>
+    </div>
+    <div id='answer'>
+        <p>Odpowiedź na bardzi trudne pytanie zassysane z bazy</p>
+    </div>
+    <div class='button'>
+        <input type='button' id="unknown" value="nie umiem">
+        <input type='button' id="look" value="sprawdź odpowiedź" onclick="check();">
+        <input type='button' id="known" value="umiem">
+    </div>
+</div>
+
+<footer>
+    <p>Copyright &copy 2018 Zolech & Rotnicki</p>
+</footer>
+</body>
+</html>

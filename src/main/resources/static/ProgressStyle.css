@@ -1,0 +1,43 @@
+*{	margin: 0;
+    padding: 0;
+    font-family: 'Krona One', sans-serif;
+}
+
+html, body {
+    height: 90%;
+    margin: 0%;
+    background: url(m.jpg);
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+
+
+}
+
+#title {
+    font-size: 4vh;
+    font-size: 4vw;
+    text-align: center;
+    padding-bottom: 3%;
+
+}
+
+#return {
+    font-size: 200%;
+    margin-top: 4%;
+    width:  50%;
+    height:  10%;
+    margin-left: 25%;
+    border-radius: 5%;
+
+}
+
+footer{
+    padding-top: 3%;
+    clear: both;
+    text-align: center;
+    font-size: 2vh;
+    font-size: 2vw;
+}

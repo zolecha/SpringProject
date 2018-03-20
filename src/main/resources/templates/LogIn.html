@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset='UTF-8'>
+	<title>Logowanie</title>
+	<link rel="stylesheet" type="text/css" href="styleLogIn.css">
+	<link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+</head>
+<body>
+	<div id='wrapper'>
+	<header>
+		<h1>Metoda Na Koda</h1>
+	</header>
+	<section>
+		<article>
+			<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+		</article>
+	</section>
+	<aside>
+	
+		
+		<form method="post" th:action="@{/UserLogIn}"> 
+		<h3>Logowanie i rejestracja</h3>
+			<!-- <p><input class="frame" type="text" name="login" value="" th:field="${user.login}" placeholder="Login"></p> -->
+			<p><input class="frame" type="text" name="login" value="" placeholder="Login" required></p>
+           <!--  <p><input class="frame" type="password" name="password" value="" th:field="${user.pass}" placeholder="Hasło"></p> -->
+            <p><input class="frame" type="password" name="pass" value=""  placeholder="Hasło" required></p>
+			<div>
+                <p><input id="returnBtn" type="button" onclick="location.href='CreateAccount'" value="Rejestracja"></p>
+                <p><input id="submit" type="submit" value="Zaloguj"></p>
+            </div>
+		</form>
+	</aside>
+	
+	<footer>
+		<p>Copyright &copy 2018 Zolech & Rotnicki</p>
+	</footer>
+	</div>
+</body>
+</html>

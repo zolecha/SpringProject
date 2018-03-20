@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Metoda na Koda - LangChoice</title>
+    <link rel="stylesheet" type="text/css" href="LangChoiceStyle.css">
+    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+</head>
+<body>
+
+<div class="container">
+    <button id="logoutBtn">Wyloguj</button>
+    <header>
+        <h1 id="greet">Witaj <span th:text="${user.login}"></span>! Owocnej Nauki!</h1>
+    </header>
+
+    <a href="Java"><button class="langChoice">Java</button></a>
+    <a href="MySQL"><button class="langChoice">MySQL</button></a>
+    <a href="Python"><button class="langChoice">Python</button></a>
+    <a href="JavaScript"><button class="langChoice">JavaScript</button></a>
+
+</div>
+
+<footer>
+		<p>Copyright &copy 2018 Zolech & Rotnicki</p>
+	</footer>
+
+</body>
+</html>

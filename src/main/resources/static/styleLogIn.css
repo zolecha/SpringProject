@@ -1,0 +1,101 @@
+*{	margin: 0;
+    padding: 0;
+    font-family: 'Krona One', sans-serif;
+}
+body {
+    height: 90%;
+    letter-spacing: 0.1vw;
+    background: url(m.jpg);
+}
+#wrapper{
+    margin: 0.5%;
+}
+header {
+    text-align: center;
+    margin-top: 1%;
+    font-size: 2vh;
+    font-size: 2vw;
+}
+h3 {
+    text-align: center;
+}
+section{
+    width: 65%;
+    height: 80%;
+    float: left;
+    margin: 0.5% 0.5% 0.5% 0%;
+}
+article{
+    padding: 5%;
+    overflow: inherit;
+    font-size: 2vh;
+    font-size: 2vw;
+    text-align: justify;
+}
+aside{
+    width: 33%;
+    height: 80%;
+    float: left;
+    margin: 0.5% 0% 0.5% 0.5%;
+
+}
+form {
+    margin: 8%;
+    padding-bottom: 25%;
+    font-size: 2vh;
+    font-size: 2vw;
+}
+.frame {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    text-align: center;
+    height: 25%;
+    width: 60%;
+    font-size: 2vh;
+    font-size: 2vw;
+}
+#returnBtn {
+    font-size: 1vh;
+    font-size: 1vw;
+    float: left;
+    height: 30%;
+    width: 35%;
+    margin-top: 4%;
+    margin-right: 5%;
+    margin-left: 10%;
+    border-radius: 5%;
+    cursor: pointer;
+}
+
+#submit {
+    font-size: 1vh;
+    font-size: 1vw;
+    float: right;
+    height: 30%;
+    width: 35%;
+    margin-top: 4%;
+    margin-right: 10%;
+    margin-left: 5%;
+    border-radius: 5%;
+    cursor: pointer;
+
+
+}
+
+label, input{
+    display:block;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0.5%
+}
+footer{
+    clear: both;
+    text-align: center;
+    font-size: 2vh;
+    font-size: 2vw;
+}
+header, section, article, aside, footer {
+    display:block;
+    border-radius: 2%;
+
+}
