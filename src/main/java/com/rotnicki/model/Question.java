@@ -8,9 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Entity
@@ -27,8 +29,9 @@ public class Question {
     
     private String category;
     
-    @OneToOne(mappedBy="question", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy="question", cascade = CascadeType.ALL)
 	@Transient
+	@Autowired
 	private Progress progress;
 
 

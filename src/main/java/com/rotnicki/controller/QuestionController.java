@@ -27,7 +27,7 @@ public class QuestionController {
 		this.questionRepository = questionRepository;
 	}
 
-	private Stack<Long> losuj() {
+/*	private Stack<Long> losuj() {
 		Random r = new Random();
 		Stack<Long> st = new Stack<Long>();
 		HashSet<Long> l = new HashSet<Long>();
@@ -71,9 +71,9 @@ public class QuestionController {
 	}
 	System.out.println(st);
 	return st;
-}*/
+}
 
-	Stack<Long> stack = losuj();
+	Stack<Long> stack = losuj(); */
 	// ArrayList <Long> list = new ArrayList<Long>();
 	
 /*	@RequestMapping("/JavaFiszka")
