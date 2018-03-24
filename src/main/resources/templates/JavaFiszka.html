@@ -1,44 +1,51 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/html" lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/html" lang="en"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset='UTF-8'>
-    <title>Java - Fiszka</title>
-    <link rel="stylesheet" type="text/css" href="styleFiszka.css">
-    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-
-        function flip() {
-            $('.karta').toggleClass('flipped');
-        }
-
-
-    </script>
+<meta charset='UTF-8'>
+<title>Java - Fiszka</title>
+<link rel="stylesheet" type="text/css" href="styleFiszka.css">
+<link href="https://fonts.googleapis.com/css?family=Krona+One"
+	rel="stylesheet">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+	function flip() {
+		$('.karta').toggleClass('flipped');
+	}
+</script>
 </head>
 <body>
-<div class='back'><a href="Java"><button id="back">Powrót</button></a></div>
-<div class='content'>
-    <section class="container">
-        <div class="karta" onclick="flip()">
-            <div id='question'>
-                <p th:text="${question.question}"></p>
-            </div>
-            <div id='answer'>
-                <p th:text="${question.answer}"></p>
-            </div>
-        </div>
-    </section>
+	<div class='back'>
+		<a href="Java"><button id="back">Powrót</button></a>
+	</div>
+	<div class='content'>
+		<section class="container">
+			<div class="karta" onclick="flip()">
+				<div id='question'>
+					<p th:text="${question.question}"></p>
+				</div>
+				<div id='answer'>
+					<p th:text="${question.answer}"></p>
+				</div>
+			</div>
+		</section>
 
 
-    <div class='button'>
-        <input type='button' id="unknown" value="nie umiem">
-        <input type='button' id="look" value="sprawdź odpowiedź" onclick="flip();">
-        <input type='button' id="known" value="umiem">
-    </div>
-</div>
+		<div class='button'>
+			<form method="post" th:action="@{/unknown}">
+				<input type='submit' id="unknown" value="nie umiem" />
+			</form>
+			<input type='button' id="look" value="sprawdź odpowiedź"
+				onclick="flip();">
+			<form method="post" th:action="@{/known}">
+				<input type='submit' id="known" value="umiem" />
+			</form>
+		</div>
+	</div>
 
-<footer>
-    <p>Copyright &copy 2018 Zolech & Rotnicki</p>
-</footer>
+	<footer>
+		<p>Copyright &copy 2018 Zolech & Rotnicki</p>
+	</footer>
 </body>
 </html>

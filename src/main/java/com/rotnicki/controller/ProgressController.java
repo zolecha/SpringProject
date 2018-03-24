@@ -7,64 +7,60 @@ import java.util.List;
 import java.util.Random;
 import java.util.Stack;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.rotnicki.model.Progress;
 import com.rotnicki.model.Question;
+import com.rotnicki.model.User;
+import com.rotnicki.repository.ProgressRepository;
 import com.rotnicki.service.ProgressService;
 
+@Component
 @Controller
 public class ProgressController {
-	//@Autowired
+
 	ProgressService progressService;
+	@Autowired
+	ProgressRepository progressRepository;
+	Stack<Progress> stack;
+	Progress progress;
 
 	@Autowired
 	public ProgressController(ProgressService progressService) {
 		this.progressService = progressService;
 	}
-	
-	private Stack<Progress> losuj() {
-		Random r = new Random();
-		Stack<Progress> stack = new Stack<Progress>();
-		HashSet<Progress> set = new HashSet<Progress>();
-		List<Progress> list = new ArrayList<Progress>();
-		//przypisanie do zmiennej list listy obiektów Question
-		list = progressService.unknownJM();;
-		
-		//dodawanie do zbioru 15 unikatowych obiektów
-		while (set.size() < 11) {
-			int index = r.nextInt(list.size());
-			//Long x = (long) r.nextInt(list.size());
-			set.add(list.get(index));
-		}
-		//
-		for (Progress e : set) {
-			list.add(e);
-		}
-		Collections.shuffle(list);
-		for (Progress e : list) {
-			stack.push(e);
-		}
-		return stack;
-	}
 
-		Stack<Progress> stack; 
-	
-	
 	@RequestMapping("/JavaFiszka")
 	public String javaFiszka(Model model) {
 		try {
-			stack = losuj();
-			System.out.println(stack);
-			Question question = stack.pop().getQuestion();
+			stack = progressService.losujJM();
+			progress = stack.pop();
+			Question question = progress.getQuestion();
 			model.addAttribute("question", question);
-			System.out.println(question);
 		} catch (Exception e) {
-			stack = losuj();
-			
+			stack = progressService.losujJM();
+
 		}
 		return "JavaFiszka";
+
+	}
+
+	@RequestMapping("/known")
+	public String knownProgress() {
+		progress.setProg(1);
+		progressRepository.save(progress);
+		return "redirect:/JavaFiszka";
+
+	}
+
+	@RequestMapping("/unknown")
+	public String unknownProgress(Model model) {
+		progress.setProg(0);
+		progressRepository.save(progress);
+		return "redirect:/JavaFiszka";
 
 	}
 
