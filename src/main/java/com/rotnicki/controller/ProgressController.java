@@ -36,12 +36,27 @@ public class ProgressController {
 	@RequestMapping("/JavaFiszka")
 	public String javaFiszka(Model model) {
 		try {
-			stack = progressService.losujJM();
+			stack = progressService.losuj("JM");
 			progress = stack.pop();
 			Question question = progress.getQuestion();
 			model.addAttribute("question", question);
 		} catch (Exception e) {
-			stack = progressService.losujJM();
+			stack = progressService.losuj("JM");
+
+		}
+		return "JavaFiszka";
+
+	}
+	
+	@RequestMapping("/JavaQuestionFiszka")
+	public String javaQuestionFiszka(Model model) {
+		try {
+			stack = progressService.losuj("JQ");
+			progress = stack.pop();
+			Question question = progress.getQuestion();
+			model.addAttribute("question", question);
+		} catch (Exception e) {
+			stack = progressService.losuj("JQ");
 
 		}
 		return "JavaFiszka";

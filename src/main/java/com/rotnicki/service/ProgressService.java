@@ -31,34 +31,37 @@ public class ProgressService {
 		return progressRepository.findByUserAndProg(UserController.logInUser, 1);
 	}
 
-	public List <Progress> unknownJM(){
+	public List <Progress> unknownCat(String cat){
 		List<Progress> unknown = new ArrayList <Progress>();
 		List<Progress> unknownJM = new ArrayList <Progress>();
 		unknown =  unknown();
 		
 		for (int i = 0; i< unknown.size(); i++ ) {
 			Progress p = unknown.get(i);
-			if (p.getQuestion().getCategory().toUpperCase().equals("JM")) {
+			if (p.getQuestion().getCategory().toUpperCase().equals(cat)) {
 				unknownJM.add(p);
 			}
 		}
 		System.out.println(unknownJM);
 		return unknownJM;
 	}
-	public List <Progress> knownJM(){
+	public List <Progress> knownCat(String cat){
 		List<Progress> known = new ArrayList <Progress>();
 		List<Progress> knownJM = new ArrayList <Progress>();
 		known =  known();
 		
 		for (int i = 0; i< known.size(); i++ ) {
 			Progress p = known.get(i);
-			if (p.getQuestion().getCategory().toUpperCase().equals("JM")) {
+			if (p.getQuestion().getCategory().toUpperCase().equals(cat)) {
 				knownJM.add(p);
 			}
 		}
 		return knownJM;
 	}
-	public Stack<Progress> losujJM() {
+	
+	//losuje do stosu 15 obiektów 10 z progresem 0 i 5 z progresem 1;
+	
+	public Stack<Progress> losuj(String cat) {
 		Random r = new Random();
 		Stack<Progress> stack = new Stack<Progress>();
 		HashSet<Progress> set = new HashSet<Progress>();
@@ -66,8 +69,8 @@ public class ProgressService {
 		List<Progress> list = new ArrayList<Progress>();
 		List<Progress> knownList = new ArrayList<Progress>();
 		// przypisanie do zmiennej list listy obiektów Question
-		list = unknownJM();
-		knownList = knownJM();
+		list = unknownCat(cat);
+		knownList = knownCat(cat);
 
 		// dodawanie do zbioru 15 unikatowych obiektów
 		// 10 lub wszystkich z z progresem 0
