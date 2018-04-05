@@ -11,7 +11,10 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.rotnicki.model.Progress;
 import com.rotnicki.model.Question;
 import com.rotnicki.model.User;
@@ -33,41 +36,42 @@ public class ProgressController {
 		this.progressService = progressService;
 	}
 
+	
+	//Sprawdzić czy można tak zrobić zeby po wybraniu buttona z kategorią przypisywać cat do zmiennej i wywoływać daną metodę z konkretną kategorią
+	private String cate;
+	
+	public String getCate() {
+		return cate;
+	}
+
+	public void setCate(String cate) {
+		this.cate = cate;
+	}
+
+
 	@RequestMapping("/JavaFiszka")
-	public String javaFiszka(Model model) {
+	public String javaMethodFiszka(Model model, @RequestParam String category) {
 		try {
-			stack = progressService.losuj("JM");
+			cate = category;
+			stack = progressService.losuj(category);
 			progress = stack.pop();
 			Question question = progress.getQuestion();
 			model.addAttribute("question", question);
 		} catch (Exception e) {
-			stack = progressService.losuj("JM");
+			stack = progressService.losuj(category);
 
 		}
 		return "JavaFiszka";
 
 	}
 	
-	@RequestMapping("/JavaQuestionFiszka")
-	public String javaQuestionFiszka(Model model) {
-		try {
-			stack = progressService.losuj("JQ");
-			progress = stack.pop();
-			Question question = progress.getQuestion();
-			model.addAttribute("question", question);
-		} catch (Exception e) {
-			stack = progressService.losuj("JQ");
-
-		}
-		return "JavaFiszka";
-
-	}
 
 	@RequestMapping("/known")
-	public String knownProgress() {
+	public String knownProgress(Model model) {
 		progress.setProg(1);
 		progressRepository.save(progress);
-		return "redirect:/JavaFiszka";
+		
+		return "redirect:/JavaFiszka?category="+cate;
 
 	}
 
@@ -75,8 +79,16 @@ public class ProgressController {
 	public String unknownProgress(Model model) {
 		progress.setProg(0);
 		progressRepository.save(progress);
-		return "redirect:/JavaFiszka";
+		return "redirect:/JavaFiszka?category="+cate;
 
 	}
+	
+//	@RequestMapping("/JavaProgress")
+//	public String progress(Model model) {
+//		Integer a = progressRepository.progressFromCategory();
+//		System.out.println(a);
+//		return "JavaProgress";
+//
+//	}
 
 }

@@ -1,6 +1,8 @@
 package com.rotnicki.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -15,6 +17,7 @@ import com.rotnicki.model.User;
 import com.rotnicki.repository.UserRepository;
 
 @Controller
+//@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class UserController {
 		
     UserRepository userRepository;
@@ -23,6 +26,7 @@ public class UserController {
 	public UserController(UserRepository userRepository) {
 		this.userRepository = userRepository;
 	}
+    
     public static User logInUser;
 	public static String login;
 	

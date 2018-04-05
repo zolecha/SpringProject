@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/html" lang="en"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Metoda na Koda - JavaMenu</title>
@@ -14,10 +15,10 @@
         <h1 id="title">Java</h1>
     </header>
 
-    <a href="JavaFiszka"><button class="choice">Metody</button></a>
-    <a href="JavaQuestionFiszka"><button class="choice">Pytania rekrutacyjne</button></a>
-    <a href="LangChoice"><button class="choice">Powrót do wyboru języka</button></a>
-    <a href="JavaProgress"><button class="choice">Postęp</button></a>
+	<input type="button" value="Metody" onclick="location.href='/metodaNaKoda/JavaFiszka?category=JM'" class="choice" />
+	<input type="button" value="Pytania rekrutacyjne" onclick="location.href='/metodaNaKoda/JavaFiszka?category=JQ'" class="choice" />
+	<input type="button" value="Powrót do wyboru języka" onclick="location.href='/metodaNaKoda/LangChoice'" class="choice" />
+	<input type="button" value="Postęp" onclick="location.href='/metodaNaKoda/JavaProgress'" class="choice" />
 
 </div>
 

@@ -9,6 +9,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
+
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
 	@Id

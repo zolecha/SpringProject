@@ -4,9 +4,8 @@
 <head>
 <meta charset='UTF-8'>
 <title>Java - Fiszka</title>
-<link rel="stylesheet" type="text/css" href="styleFiszka.css">
-<link href="https://fonts.googleapis.com/css?family=Krona+One"
-	rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fiszkaStyle.css">
+<link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -14,10 +13,12 @@
 		$('.karta').toggleClass('flipped');
 	}
 </script>
+
 </head>
 <body>
 	<div class='back'>
-		<a href="Java"><button id="back">Powrót</button></a>
+		<!-- <a href="Java"><button id="back">Powrót</button></a> -->
+		<input type="button" value="Powrót" onclick="location.href='/metodaNaKoda/Java'" id="back" />
 	</div>
 	<div class='content'>
 		<section class="container">
