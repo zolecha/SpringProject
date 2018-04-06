@@ -8,6 +8,7 @@ import java.util.Random;
 import java.util.Stack;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.rotnicki.controller.UserController;
@@ -31,12 +32,12 @@ public class ProgressService {
 		return progressRepository.findByUserAndProg(UserController.logInUser, 1);
 	}
 
-	public List <Progress> unknownCat(String cat){
-		List<Progress> unknown = new ArrayList <Progress>();
-		List<Progress> unknownJM = new ArrayList <Progress>();
-		unknown =  unknown();
-		
-		for (int i = 0; i< unknown.size(); i++ ) {
+	public List<Progress> unknownCat(String cat) {
+		List<Progress> unknown = new ArrayList<Progress>();
+		List<Progress> unknownJM = new ArrayList<Progress>();
+		unknown = unknown();
+
+		for (int i = 0; i < unknown.size(); i++) {
 			Progress p = unknown.get(i);
 			if (p.getQuestion().getCategory().toUpperCase().equals(cat)) {
 				unknownJM.add(p);
@@ -45,12 +46,13 @@ public class ProgressService {
 		System.out.println(unknownJM);
 		return unknownJM;
 	}
-	public List <Progress> knownCat(String cat){
-		List<Progress> known = new ArrayList <Progress>();
-		List<Progress> knownJM = new ArrayList <Progress>();
-		known =  known();
-		
-		for (int i = 0; i< known.size(); i++ ) {
+
+	public List<Progress> knownCat(String cat) {
+		List<Progress> known = new ArrayList<Progress>();
+		List<Progress> knownJM = new ArrayList<Progress>();
+		known = known();
+
+		for (int i = 0; i < known.size(); i++) {
 			Progress p = known.get(i);
 			if (p.getQuestion().getCategory().toUpperCase().equals(cat)) {
 				knownJM.add(p);
@@ -58,9 +60,9 @@ public class ProgressService {
 		}
 		return knownJM;
 	}
-	
-	//losuje do stosu 15 obiektów 10 z progresem 0 i 5 z progresem 1;
-	
+
+	// losuje do stosu 15 obiektów 10 z progresem 0 i 5 z progresem 1;
+
 	public Stack<Progress> losuj(String cat) {
 		Random r = new Random();
 		Stack<Progress> stack = new Stack<Progress>();
@@ -108,6 +110,17 @@ public class ProgressService {
 			stack.push(e);
 		}
 		return stack;
+	}
+
+	// Progress z danej kategorii
+	public int progressCategory(String cat) {
+		List<Progress> know = knownCat(cat);
+		List<Progress> unknow = unknownCat(cat);
+		float a = know.size();
+		float b = unknow.size();
+		int res = Math.round((a / (a + b)) * 100);
+		return res;
+
 	}
 
 }

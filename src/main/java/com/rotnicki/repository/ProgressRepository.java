@@ -16,5 +16,6 @@ public interface ProgressRepository extends CrudRepository<Progress, Long> {
 //	@Query("select round((select count(*) from Progress as p join Question q on(p.id_q=q.id_q) where p.id_u=1 and p.prog=1 and q.category='JM')/\r\n" + 
 //			"(select count(*) from Progress as p join Question q on(p.id_q=q.id_q) where p.id_u=1 and q.category='JM'})*100)")
 //	public Integer progressFromCategory();
+
 	
 }

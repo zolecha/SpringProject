@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns="http://www.w3.org/1999/html" lang="en"
+	xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Metoda na Koda - Java Postępy</title>
@@ -24,6 +25,10 @@
     </canvas>
 
     <a href = "Java"><button id="return">Powrót</button></a>
+    
+    <p style="display: none" id="one" th:text="${prog1}"></p>
+    <p style="display: none" id="two" th:text="${prog2}"></p>
+
 
     <footer>
         <p>Copyright &copy 2018 Zolech & Rotnicki</p>
@@ -31,6 +36,8 @@
 
     <script>
 
+    var x = document.getElementById("one").innerHTML;
+    var y = document.getElementById("two").innerHTML;
 
         function roud () {
 
@@ -58,7 +65,7 @@
                     ctx.fill();
                     ctx.stroke();
                     r++;
-                    if (r == 160) {
+                    if (r === y*2) {
                         f = false;
                     }
                 }
@@ -68,7 +75,7 @@
             ctx.font = "30px Arial";
             ctx.fillStyle = "black";
             ctx.textAlign="center";
-            ctx.fillText("Pytania rekrutacyjne - 80%",300,30);
+            ctx.fillText("Pytania rekrutacyjne - "+y+"%",300,30);
 
 
         }
@@ -84,6 +91,8 @@
             var f = true;
 
             var k = setInterval(cir, 10);
+            
+   
 
             ctx.beginPath();
             ctx.arc(300,250,200,0,2*Math.PI);
@@ -100,7 +109,7 @@
                     ctx.fill();
                     ctx.stroke();
                     r++;
-                    if (r == 80) {
+                    if (r === x*2) {
                         f = false;
                     }
                 }
@@ -110,7 +119,7 @@
             ctx.font = "30px Arial";
             ctx.fillStyle = "black";
             ctx.textAlign="center";
-            ctx.fillText("Metody - 40%",300,30)
+            ctx.fillText("Metody - "+x+"%",300,30)
 
         }
         roud2();

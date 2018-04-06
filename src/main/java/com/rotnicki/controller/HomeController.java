@@ -21,47 +21,13 @@ public class HomeController {
 	
 	@RequestMapping("/LangChoice") 
 	public String langChoice(Model model) {
-		model.addAttribute("login", UserController.logInUser.getLogin());	
+		model.addAttribute("user", UserController.logInUser);	
 		return "LangChoice";
 	}
 	
 	@RequestMapping("/Java") 
 	public String javaMenu() {
 		return "JavaMenu";
-	}
-	
-	@RequestMapping("/MySQL") 
-	public String mySQLMenu() {
-		return "MySQLMenu";
-	}
-	@RequestMapping("/Python") 
-	public String pythonMenu() {
-		return "PythonMenu";
-	}
-	
-	@RequestMapping("/JavaScript") 
-	public String jsMenu() {
-		return "JSMenu";
-	}
-	
-	@RequestMapping("/JavaProgress") 
-	public String javaProgress() {
-		return "JavaProgress";
-	}
-	
-	@RequestMapping("/PythonProgress") 
-	public String PythonProgress() {
-		return "PythonProgress";
-	}
-	
-	@RequestMapping("/JavaScriptProgress") 
-	public String JavaScriptProgress() {
-		return "JavaScriptProgress";
-	}
-	
-	@RequestMapping("/MySQLProgress") 
-	public String mySQLProgress() {
-		return "MySQLProgress";
 	}
 	
 	
@@ -71,24 +37,7 @@ public class HomeController {
 		return "CreateAccount";
 	}
 	
-//	@RequestMapping("/JavaFiszka") 
-//	public String javaFiszka() {
-//		return "JavaFiszka";
-//	}
 	
-	@RequestMapping("/PythonFiszka") 
-	public String pythonFiszka() {
-		return "PythonFiszka";
-	}
-	
-	@RequestMapping("/MySQLFiszka") 
-	public String mySQLFiszka() {
-		return "MySQLFiszka";
-	}
-	
-	@RequestMapping("/JavaScriptFiszka") 
-	public String javaScriptFiszka() {
-		return "JavaScriptFiszka";
-	}
+
 
 }

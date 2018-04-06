@@ -30,6 +30,7 @@ public class ProgressController {
 	ProgressRepository progressRepository;
 	Stack<Progress> stack;
 	Progress progress;
+	
 
 	@Autowired
 	public ProgressController(ProgressService progressService) {
@@ -83,12 +84,17 @@ public class ProgressController {
 
 	}
 	
-//	@RequestMapping("/JavaProgress")
-//	public String progress(Model model) {
-//		Integer a = progressRepository.progressFromCategory();
-//		System.out.println(a);
-//		return "JavaProgress";
-//
-//	}
+ Integer JMp, JQp;
+
+	@RequestMapping("/JavaProgress")
+	public String progress(Model model) {
+		JMp = progressService.progressCategory("JM");
+		JQp = progressService.progressCategory("JQ");
+		model.addAttribute("prog1",JMp.toString());
+		model.addAttribute("prog2",JQp.toString());
+		System.out.println("JM progress "+JMp+" JQ progress "+JQp);
+		return "JavaProgress";
+
+	}
 
 }

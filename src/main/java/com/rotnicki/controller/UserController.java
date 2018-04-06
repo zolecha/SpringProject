@@ -28,7 +28,7 @@ public class UserController {
 	}
     
     public static User logInUser;
-	public static String login;
+	//public static String login;
 	
 	@RequestMapping("/add")
     public String addUser(@ModelAttribute User user){
@@ -39,7 +39,7 @@ public class UserController {
 	@RequestMapping("/UserLogIn")
 	    public String userLogIn(@ModelAttribute User user, @RequestParam String login, @RequestParam String pass){
 		logInUser = userRepository.getByLoginAndPass(login, pass);
-		login = logInUser.getLogin();
+		//login = logInUser.getLogin();
         return "LangChoice";
 	}
 	
