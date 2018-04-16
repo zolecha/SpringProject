@@ -8,36 +8,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.rotnicki.model.User;
 
-
-
 @Controller
 
 public class HomeController {
-	
-	@RequestMapping("/") 
+
+	@RequestMapping("/")
 	public String home() {
 		return "LogIn";
 	}
-	
-	@RequestMapping("/LangChoice") 
+
+	@RequestMapping("/LangChoice")
 	public String langChoice(Model model) {
-		model.addAttribute("user", UserController.logInUser);	
+		model.addAttribute("user", UserController.logInUser);
 		return "LangChoice";
 	}
-	
-	@RequestMapping("/Java") 
+
+	@RequestMapping("/Java")
 	public String javaMenu() {
 		return "JavaMenu";
 	}
-	
-	
-	@RequestMapping("/CreateAccount") 
+
+	@RequestMapping("/CreateAccount")
 	public String createAccount(Model model) {
-		model.addAttribute("user", new User());		
+		model.addAttribute("user", new User());
 		return "CreateAccount";
 	}
-	
-	
-
 
 }

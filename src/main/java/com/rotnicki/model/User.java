@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 
 @Entity // This tells Hibernate to make a table out of this class
+@Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -25,8 +26,13 @@ public class User {
 	@OneToMany(mappedBy="user", cascade = CascadeType.ALL)
 	@Transient
 	private Progress progress;
+	
+	private boolean enabled;
+	
+	private String passwordConfirm;
 
 	public User() {
+		this.enabled = true;
 	}
 
 	public Integer getId_u() {
@@ -52,13 +58,30 @@ public class User {
 	public void setPass(String pass) {
 		this.pass = pass;
 	}
-
+	
 	public Progress getProgress() {
 		return progress;
 	}
 
 	public void setProgress(Progress progress) {
 		this.progress = progress;
+	}
+	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	@Transient
+	public String getPasswordConfirm() {
+		return passwordConfirm;
+	}
+
+	public void setPasswordConfirm(String passwordConfirm) {
+		this.passwordConfirm = passwordConfirm;
 	}
 
 	@Override

@@ -30,16 +30,8 @@ public class ProgressController {
 	ProgressRepository progressRepository;
 	Stack<Progress> stack;
 	Progress progress;
-	
-
-	@Autowired
-	public ProgressController(ProgressService progressService) {
-		this.progressService = progressService;
-	}
-
-	
-	//Sprawdzić czy można tak zrobić zeby po wybraniu buttona z kategorią przypisywać cat do zmiennej i wywoływać daną metodę z konkretną kategorią
 	private String cate;
+	Integer JMp, JQp;
 	
 	public String getCate() {
 		return cate;
@@ -48,6 +40,14 @@ public class ProgressController {
 	public void setCate(String cate) {
 		this.cate = cate;
 	}
+	
+
+	@Autowired
+	public ProgressController(ProgressService progressService) {
+		this.progressService = progressService;
+	}
+
+
 
 
 	@RequestMapping("/JavaFiszka")
@@ -84,7 +84,6 @@ public class ProgressController {
 
 	}
 	
- Integer JMp, JQp;
 
 	@RequestMapping("/JavaProgress")
 	public String progress(Model model) {
