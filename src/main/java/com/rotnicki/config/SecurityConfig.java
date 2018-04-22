@@ -14,7 +14,7 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import com.rotnicki.controller.UserController;
 
 @Configuration
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
@@ -34,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.antMatchers("/add").permitAll()
 		.anyRequest().authenticated()
 		.and()
-		.formLogin()//.loginProcessingUrl("/")
+		.formLogin()
 		.loginPage("/")
 		.defaultSuccessUrl("/LangChoice").permitAll()
         .and()
