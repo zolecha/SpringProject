@@ -6,25 +6,48 @@
     <title>Metoda na Koda - JavaMenu</title>
     <link rel="stylesheet" type="text/css" href="LangMenuStyle.css">
     <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
 
-<div class="container">
 
-    <header>
-        <h1 id="title">Java</h1>
-    </header>
+<div class="container-fluid" style="height: 95%">
 
-	<input type="button" value="Metody" onclick="location.href='/metodaNaKoda/JavaFiszka?category=JM'" class="choice" />
-	<input type="button" value="Pytania rekrutacyjne" onclick="location.href='/metodaNaKoda/JavaFiszka?category=JQ'" class="choice" />
-	<input type="button" value="Powrót do wyboru języka" onclick="location.href='/metodaNaKoda/LangChoice'" class="choice" />
-	<input type="button" value="Postęp" onclick="location.href='/metodaNaKoda/JavaProgress'" class="choice" />
+    <div class="row">
+        <div class="col-sm-12">
+            <header>
+                <h1 id="title">Java</h1>
+            </header>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+	        <input type="button" value="Metody" onclick="location.href='/JavaFiszka?category=JM'" class="choice" />
+        </div>
+        <div class="col-sm-6">
+	        <input type="button" value="Pytania rekrutacyjne" onclick="location.href='/JavaFiszka?category=JQ'" class="choice" />
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <input type="button" value="Powrót do wyboru języka" onclick="location.href='/'" class="choice" />
+        </div>
+        <div class="col-sm-6">
+           <input type="button" value="Postęp" onclick="location.href='/JavaProgress'" class="choice" />
+        </div>
+    </div>
 
 </div>
-
 <footer>
-		<p>Copyright &copy 2018 Zolech & Rotnicki</p>
-	</footer>
-
+    <p>Copyright &copy 2018 Zolech & Rotnicki</p>
+</footer>
 </body>
+
 </html>

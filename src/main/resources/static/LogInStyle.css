@@ -2,79 +2,87 @@
     padding: 0;
     font-family: 'Krona One', sans-serif;
 }
-body {
-    height: 90%;
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 99%;
     letter-spacing: 0.1vw;
     background: url(m.jpg);
 }
-#wrapper{
-    margin: 0.5%;
+
+#container{
+    min-height: 100%;
+    position: relative;
 }
+
+
 header {
     text-align: center;
     margin-top: 1%;
-    font-size: 2vh;
-    font-size: 2vw;
+    font-size: 5vh;
+
+
 }
 h3 {
     text-align: center;
+    font-size: 100%;
 }
 section{
-    width: 65%;
+    text-align: center;
+    width: 100%;
     height: 80%;
     float: left;
-    margin: 0.5% 0.5% 0.5% 0%;
+    margin: 0.5% 0.5% 0.5% 0;
 }
 article{
+
     padding: 5%;
     overflow: inherit;
-    font-size: 2vh;
-    font-size: 2vw;
+    font-size: 3vh;
     text-align: justify;
 }
 aside{
-    width: 33%;
+    text-align: center;
+    width: 100%;
     height: 80%;
-    float: left;
-    margin: 0.5% 0% 0.5% 0.5%;
+
+    margin: 0.5% 0 0.5% 0.5%;
 
 }
 form {
     margin: 8%;
-    padding-bottom: 25%;
-    font-size: 2vh;
-    font-size: 2vw;
+    padding-bottom: 20%;
+    font-size: 260%;
+
 }
 .frame {
     margin-top: 6%;
     margin-bottom: 6%;
     text-align: center;
-    height: 25%;
-    width: 60%;
-    font-size: 2vh;
-    font-size: 2vw;
+    height: 7vh;
+    width: 100%;
+    font-size: 4vh;
 }
 #returnBtn {
-    font-size: 1vh;
-    font-size: 1vw;
+    font-size: 2vh;
     float: left;
-    height: 30%;
-    width: 35%;
+    height: 40px;
+    width: 45%;
     margin-top: 4%;
     margin-right: 5%;
-    margin-left: 10%;
+    margin-left: 0;
     border-radius: 5%;
     cursor: pointer;
 }
 
 #submit {
-    font-size: 1vh;
-    font-size: 1vw;
+    font-size: 2vh;
     float: right;
-    height: 30%;
-    width: 35%;
+    height: 40px;
+    width: 45%;
     margin-top: 4%;
-    margin-right: 10%;
+    margin-right: 0;
     margin-left: 5%;
     border-radius: 5%;
     cursor: pointer;
@@ -89,10 +97,12 @@ label, input{
     padding: 0.5%
 }
 footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     clear: both;
     text-align: center;
     font-size: 2vh;
-    font-size: 2vw;
 }
 header, section, article, aside, footer {
     display:block;

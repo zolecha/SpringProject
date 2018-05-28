@@ -7,20 +7,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 
-import com.rotnicki.controller.UserController;
 
+@SuppressWarnings("deprecation")
 @Configuration
-//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
 	DataSource dataSource;
 	
-	@SuppressWarnings("deprecation")
+
 	@Bean
 	public static NoOpPasswordEncoder passwordEncoder() {
 	return (NoOpPasswordEncoder) NoOpPasswordEncoder.getInstance();
@@ -30,24 +29,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public void configure(HttpSecurity security) throws Exception{
 		
 		security.authorizeRequests()
-		.antMatchers("/CreateAccount").permitAll()
-		.antMatchers("/add").permitAll()
+		.antMatchers("/CreateAccount", "/add", "/login", "/m.jpg", "/loginStyle.css", "/CreateAccountStyle.css").permitAll()
 		.anyRequest().authenticated()
 		.and()
 		.formLogin()
-		//.loginPage("/")
-		.defaultSuccessUrl("/LangChoice").permitAll()
-        .and()
-        .logout()
-        .permitAll();
+		.loginPage("/login").failureUrl("/login?error")
+		.usernameParameter("login")
+		.passwordParameter("pass")
+		.and().logout().permitAll();
+
 	}
 	
 	@Autowired
 	public void securityUsers(AuthenticationManagerBuilder auth) throws Exception{
 		auth.jdbcAuthentication()
-		.dataSource(dataSource)
-		.usersByUsernameQuery("SELECT login, pass, enabled FROM USER WHERE login=?")
-		.authoritiesByUsernameQuery("SELECT login, pass FROM USER WHERE login=?");
+		.usersByUsernameQuery("SELECT login, pass, enabled FROM user WHERE login=?")
+		.authoritiesByUsernameQuery("SELECT login, pass, enabled FROM user WHERE login=?")
+		.dataSource(dataSource);
 	}
+
+	
+	@Override
+	 public void configure(WebSecurity web) throws Exception {
+	 web
+	    .ignoring()
+	    .antMatchers("/resources/static/**", "/resources/templates/**");
+	 }
 	
 }

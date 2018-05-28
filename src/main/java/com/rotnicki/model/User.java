@@ -6,13 +6,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Transient;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
+import org.springframework.stereotype.Component;
 
-@Entity // This tells Hibernate to make a table out of this class
+@Entity
+@Component
 @Scope(value="session", proxyMode=ScopedProxyMode.TARGET_CLASS)
 public class User {
 	@Id

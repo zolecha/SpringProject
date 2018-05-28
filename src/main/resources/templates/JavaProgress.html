@@ -14,28 +14,38 @@
 </head>
 <body>
 
+<div class="container-fluid" style="height: 95%;">
+
 <div class="container">
 
-    <header>
-        <h1 id="title">Java - postępy</h1>
-    </header>
+    <div class="row">
+        <div class="col-sm-12">
+            <header>
+                <h1 id="title">Java - postępy</h1>
+            </header>
+        </div>
+    </div>
 
 
+    <div class="row">
+        <div class="col-sm-6" >
+            <canvas id="myCanvas" width="510%" height="500%" style="border:0 solid #000000; margin: 5% auto;"></canvas>
+        </div>
+        <div class="col-sm-6" >
+            <canvas id="myCanvas2" width="510%" height="500%" style="border:0 solid #000000; margin: 5% auto; "></canvas>
+        </div>
+    </div>
 
-    <canvas id="myCanvas" width="600%" height="500%" style="border:0px solid #000000; margin-left: 8%; margin-right: 8%; margin-top: 1%">
-    </canvas>
-    <canvas id="myCanvas2" width="600%" height="500%" style="border:0px solid #000000; margin-left: 8%; margin-right: 8%; margin-top: 1%; float: right">
-    </canvas>
-
-    <a href = "Java"><button id="return">Powrót</button></a>
+    <div class="row">
+        <div class="col-sm-12">
+            <button id="return" class="btn btn-lg" onclick="location.href='/Java'">Powrót</button>
+        </div>
+    </div>
     
     <p style="display: none" id="one" th:text="${prog1}"></p>
     <p style="display: none" id="two" th:text="${prog2}"></p>
 
 
-    <footer>
-        <p>Copyright &copy 2018 Zolech & Rotnicki</p>
-    </footer>
 
     <script>
 
@@ -50,9 +60,9 @@
             var r = 1;
 
             var f = true;
-
+			if(y!=0){
             var k = setInterval(cir, 10);
-
+			}
             ctx.beginPath();
             ctx.arc(300,250,200,0,2*Math.PI);
             ctx.fillStyle = "red"
@@ -93,8 +103,9 @@
 
             var f = true;
 
+            if(x!=0){
             var k = setInterval(cir, 10);
-            
+            }
    
 
             ctx.beginPath();
@@ -134,7 +145,11 @@
 
 </div>
 
+</div>
 
+<footer>
+    <p>Copyright &copy 2018 Zolech & Rotnicki</p>
+</footer>
 
 </body>
 </html>

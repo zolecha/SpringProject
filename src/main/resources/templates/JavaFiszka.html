@@ -5,7 +5,16 @@
 <meta charset='UTF-8'>
 <title>Java - Fiszka</title>
 <link rel="stylesheet" type="text/css" href="fiszkaStyle.css">
-<link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Krona+One"
+	rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -16,35 +25,59 @@
 
 </head>
 <body>
-	<div class='back'>
-		<!-- <a href="Java"><button id="back">Powrót</button></a> -->
-		<input type="button" value="Powrót" onclick="location.href='/metodaNaKoda/Java'" id="back" />
-	</div>
-	<div class='content'>
-		<section class="container">
-			<div class="karta" onclick="flip()">
-				<div id='question'>
-					<p th:text="${question.question}"></p>
-				</div>
-				<div id='answer'>
-					<p th:text="${question.answer}"></p>
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class='back'>
+					<input type="button" value="Powrót" onclick="location.href='/Java'"
+						id="back" style="cursor: pointer; -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);" class="btn btn-basic btn-lg btn-block" />
 				</div>
 			</div>
-		</section>
+		</div>
+		
+		<div class='content'>
+			<section class="container">
+				<div class="karta" onclick="flip()">
+					<div id='question'>
+						<p th:text="${question.question}"></p>
+					</div>
+					<div id='answer'>
+						<p th:text="${question.answer}"></p>
+					</div>
+				</div>
+			</section>
+		</div>
+	
 
-
+	<div class="row">
 		<div class='button'>
-			<form method="post" th:action="@{/unknown}">
-				<input type='submit' id="unknown" value="nie umiem" />
-			</form>
-			<input type='button' id="look" value="sprawdź odpowiedź"
-				onclick="flip();">
-			<form method="post" th:action="@{/known}">
-				<input type='submit' id="known" value="umiem" />
-			</form>
+			<div class="col-sm-4">
+				<form method="post" th:action="@{/unknown}">
+					<input type='submit' id="unknown" value="nie umiem" style="cursor: pointer; -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19); margin-top:4%; font-size: 80%;" class="btn btn-basic btn-lg btn-block" />
+				</form>
+			</div>
+
+			<div class="col-sm-4">
+				<input type='button' id="look" value="sprawdź odpowiedź" style="cursor: pointer; -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);margin-top:4%;font-size: 80%" class="btn btn-basic btn-lg btn-block"
+					onclick="flip();">
+			</div>
+
+			<div class="col-sm-4">
+				<form method="post" th:action="@{/known}">
+					<input type='submit' id="known" value="umiem" style="cursor: pointer; -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);margin-top:4%;font-size: 80%;" class="btn btn-basic btn-lg btn-block" />
+				</form>
+			</div>
 		</div>
 	</div>
 
+
+	</div>
 	<footer>
 		<p>Copyright &copy 2018 Zolech & Rotnicki</p>
 	</footer>

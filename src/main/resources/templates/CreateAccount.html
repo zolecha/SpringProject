@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <title>Metoda na Koda - Create Account</title>
     <link rel="stylesheet" type="text/css" href="CreateAccountStyle.css">
-    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Krona+One" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
     <script type="text/javascript">
 
@@ -21,29 +25,45 @@
 <body>
 
 <div class="container">
+            <div class="login">
+				<header>
+                    <h1 class="header">Rejestracja Użytkownika</h1>
+				</header>
+                <form method="post" role="form" th:action="@{/add}">
+
+                        <p class="form-group"><input class="frame form-control input-lg" type="text" th:field="${user.login}" placeholder="Login" style="font-size: 2vh;"></p>
 
 
-    <div class="login">
-        <h1>Rejestracja Użytkownika</h1>
-        <form method="post" th:action="@{/add}">
-            <p><input class="frame" type="text" th:field="${user.login}" placeholder="Login"></p>
-            <p><input class="frame" type="password"  th:field="${user.pass}" placeholder="Hasło (min. 4 znaki)" required pattern=".{4,}" name="pwd1" onchange="form.pwd2.pattern = RegExp.escape(this.value)"></p>
-            <p><input class="frame" type="password"  placeholder="Powtórz Hasło" required name="pwd2" title="- podane hasła nie są zgodne."></p>
-            <div>
-                <p><input id="returnBtn" type="button" onclick="location.href='/metodaNaKoda'" value="Powrót"></p>
-                <p><input id="submit" type="submit" value="Zarejestruj"></p>
+                        <p class="form-group"><input class="frame form-control input-lg" type="password"  th:field="${user.pass}" placeholder="Hasło (min. 4 znaki)" style="font-size: 2vh;" required pattern=".{4,}" name="pwd1" onchange="form.pwd2.pattern = RegExp.escape(this.value)"></p>
+
+
+                        <p class="form-group"><input class="frame form-control input-lg" type="password"  placeholder="Powtórz Hasło" style="font-size: 2vh;" required name="pwd2" title="- podane hasła nie są zgodne."></p>
+
+
+
+                    <div class="row">
+                        <div class="col-sm-6">
+
+                            <p><input id="returnBtn" type="button" class="btn btn-basic btn-lg btn-block" onclick="location.href='/'" value="Powrót"></p>
+
+                        </div>
+
+
+
+                        <div class="col-sm-6">
+
+                            <p><input id="submit" type="submit" class="btn btn-basic btn-lg btn-block" value="Zarejestruj"></p>
+
+                        </div>
+                    </div>
+
+
+                </form>
             </div>
-        </form>
-    </div>
-    
-    
-    
 
 </div>
-
-	<footer>
-		<p>Copyright &copy 2018 Zolech & Rotnicki</p>
-	</footer>
-
+<footer>
+    <p>Copyright &copy 2018 Zolech & Rotnicki</p>
+</footer>
 </body>
 </html>
